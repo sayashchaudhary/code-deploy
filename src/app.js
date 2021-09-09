@@ -4,6 +4,7 @@ import { dbService } from "./services/db.service";
 import { apiRoutes } from './routes/api.routes';
 
 const app = express();
+const Port = process.env.PORT || 3000;
 
 dbService
 
@@ -15,6 +16,12 @@ app.use(apiRoutes);
 
 app.get('/', (req, res) => {
   res.json('Testing Route')
+});
+
+
+//Setting localhost Port
+app.listen(Port, () => {
+  console.log(`Server is running on ${ Port }`)
 });
 
 export default app;
