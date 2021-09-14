@@ -1,5 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
+import cors from "cors";
 import { dbService } from "./services/db.service";
 import { apiRoutes } from './routes/api.routes';
 
@@ -10,6 +11,7 @@ dbService
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(cors())
 
 //My Routes
 app.use(apiRoutes);
